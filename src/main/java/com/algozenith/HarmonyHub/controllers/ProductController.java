@@ -1,8 +1,13 @@
 package com.algozenith.HarmonyHub.controllers;
 
+import com.algozenith.HarmonyHub.dtos.ProductDto;
+import com.algozenith.HarmonyHub.exceptions.CategoryNotFoundException;
+import com.algozenith.HarmonyHub.exceptions.ProductNotFoundException;
 import com.algozenith.HarmonyHub.models.Product;
+import com.algozenith.HarmonyHub.services.ProductService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController

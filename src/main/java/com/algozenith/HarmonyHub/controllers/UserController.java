@@ -1,7 +1,14 @@
 package com.algozenith.HarmonyHub.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.algozenith.HarmonyHub.exceptions.CustomerNotFoundException;
+import com.algozenith.HarmonyHub.models.Customer;
+import com.algozenith.HarmonyHub.services.UserService;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
