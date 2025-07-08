@@ -1,5 +1,6 @@
 package com.algozenith.HarmonyHub.controllers;
 
+import com.algozenith.HarmonyHub.dtos.EmployeePatchRequest;
 import com.algozenith.HarmonyHub.models.Employee;
 import com.algozenith.HarmonyHub.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Qualifier;
