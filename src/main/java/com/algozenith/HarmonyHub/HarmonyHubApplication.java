@@ -9,5 +9,4 @@ public class HarmonyHubApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HarmonyHubApplication.class, args);
 	}
-
 }

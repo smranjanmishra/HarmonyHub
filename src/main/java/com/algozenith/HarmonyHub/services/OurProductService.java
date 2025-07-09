@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class OurProductService {
+public class OurProductService implements ProductService {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final SupplierRepository supplierRepository;
@@ -26,6 +26,7 @@ public class OurProductService {
         this.supplierRepository = supplierRepository;
     }
 
+    @Override
     public Product getProductById(Long id) throws ProductNotFoundException {
         Optional<Product> optionalProduct = productRepository.findById(id);
 
@@ -36,6 +37,7 @@ public class OurProductService {
         return optionalProduct.get();
     }
 
+    @Override
     public Product addProduct(Product product) throws CategoryNotFoundException, SupplierNotFoundException {
         //getting the category of the product passed by client
         System.out.println("hii");
@@ -71,11 +73,13 @@ public class OurProductService {
         return productRepository.save(product);
     }
 
+    @Override
     public List<Product> getAllProducts() {
         List<Product> allProducts = productRepository.findAll();
         return allProducts;
     }
 
+    @Override
     public List<Product> getProductsByCategory(Long id) throws CategoryNotFoundException {
         List<Product> allProducts = productRepository.findAllByCategory_id(id);
         if(allProducts.isEmpty()){
@@ -84,6 +88,7 @@ public class OurProductService {
         return allProducts;
     }
 
+    @Override
     public Product updateProduct(Product product) throws ProductNotFoundException {
         //getting the id of the product which needs to be updated
         Long productId = product.getId();
@@ -109,6 +114,7 @@ public class OurProductService {
         }
     }
 
+    @Override
     public void deleteProduct(Long id) throws ProductNotFoundException {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if (optionalProduct.isPresent()) {
@@ -119,6 +125,7 @@ public class OurProductService {
         }
     }
 
+    @Override
     public List<Product> sortProductsByPrice() throws ProductNotFoundException {
         List<Product> orderedProducts = productRepository.findAllByOrderByPrice();
         if(orderedProducts.isEmpty()){
